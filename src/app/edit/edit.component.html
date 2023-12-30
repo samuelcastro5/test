@@ -1,0 +1,88 @@
+
+<div class="container">`
+
+
+<div class="section">
+	<br>
+	
+    <form [formGroup]="nuevoForm" (ngSubmit)="postForm(nuevoForm.value)">
+        <div class="form-group">
+
+                <label for="exampleFormControlInput1">SKU</label>
+                <input type="number" class="form-control" [attr.readonly]="ocultarD" placeholder="NUMERO DE SKU" formControlName="sku">
+        </div>
+        <div class="form-group">
+                <label for="exampleFormControlInput1">ARTICULO</label>
+                <input type="text" class="form-control"  placeholder="NOMBRE DEL ARTICULO" formControlName="article">
+            </div>
+            <div class="form-group row">
+                <div class="col">
+                    <label for="exampleFormControlInput1">MARCA</label>
+                    <input type="text" class="form-control"  placeholder="NOMBRE DE LA MARCA" formControlName="stl_marca">     
+                </div>
+                <div class="col">
+                    <label for="exampleFormControlInput1">MODELO</label>
+                    <input type="text" class="form-control"  placeholder="MODELO" formControlName="model">     
+                </div>
+                
+            </div>
+            <div class="form-group row">
+                <div class="col">
+                    <label for="exampleFormControlInput1">DEPARTAMENTO</label>
+                    <br>
+                    <select (change)="OnChangeDepartamento($event)" class="form-control" formControlName="departamento_id">
+                        <option [value]="dep.id" *ngFor="let dep of  listadepartamento">{{dep.name}}</option>
+                      </select>    
+                </div>
+                <div class="col">
+                     <label for="clas">CLASE</label> 
+                    <br>
+                    <select  (change)="OnChangeClase($event)" class="form-control"  formControlName="clase_id" >
+                        <option [value]="cla.id" *ngFor="let cla of  listaclase">{{cla.name}}</option>
+                      </select>
+                  </div>
+                  <div class="col">
+                      <label for="exampleFormControlInput1">FAMILIA</label>
+                      <br>
+                      <select class="form-control"  formControlName="familia_id">
+                        <option [value]="fam.id" *ngFor="let fam of  listafamilia">{{fam.name}}</option>
+                          
+                        </select>     
+                  </div>
+            </div>
+            <div class="form-group row">
+                <div class="col">
+                    <label for="exampleFormControlInput1">STOCK</label>
+                    <input type="number" class="form-control"  placeholder="NUMERO DE STOCK" formControlName="stock">     
+                </div>
+				<div class="col">
+                    <label for="exampleFormControlInput1">CANTIDAD</label>
+                    <input type="number" class="form-control"  placeholder="CANTIDAD TOTAL" formControlName="amount">     
+                </div>
+            </div>
+			<div class="form-group row">
+                <div class="col" *ngIf="ocultarD"> 
+                    <label for="exampleFormControlInput1">DESCONTINUADO</label><br>
+					<input type="checkbox" name="discontinued" value="1" formControlName="discontinued">  
+                </div>
+                
+            </div>
+            <div class="form-group row">
+                <div class="col" *ngIf="ocultarD">
+                    <label for="exampleFormControlInput1">FECHA ALTA</label><br>
+                    <input type="text" class="form-control"  formControlName="create_date" readonly>   
+                </div>
+                <div class="col" *ngIf="ocultarD" >
+                    <label for="exampleFormControlInput1">FECHA BAJA</label><br>
+                    <input type="text" class="form-control" formControlName="finish_date" readonly>  
+                </div>
+                
+            </div>
+            	
+            <br><br>
+            <button type="submit" class="btn btn-primary">GUARDAR</button>
+            <button type="button" class="btn btn-dark" (click)="salir()">Salir</button>
+            
+</form>
+</div>
+</div>

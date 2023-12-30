@@ -1,0 +1,48 @@
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+    <div class="row col-md-6 col-md-offset-2 custyle">
+    <table class="table table-striped custab">
+    <thead>
+        <button type="button" class="btn btn-info" (click)="producto()">CREAR + </button>
+        <tr>
+            <th class="text-center">ID</th>
+            <th class="text-center">SKU</th>
+            <th class="text-center">ARTICULO</th>
+            <th class="text-center">MARCA</th>
+            <th class="text-center">MODELO</th>
+            <!--<th class="text-center">DEPARTAMENTO</th>
+            <th class="text-center">CLASE</th>
+            <th class="text-center">FAMILIA</th>-->
+            <th class="text-center">FECHA DE ALTA</th>
+            <th class="text-center">STOCK</th>
+            <th class="text-center">CANTIDAD</th>
+            <th class="text-center">DESCONTINUADO</th>
+            <th class="text-center">FECHA BAJA</th>
+            <th class="text-center">Acciones</th>
+        </tr>
+    </thead>
+            <tr *ngFor="let sku of listasku ">
+                <td class="text-center">{{sku.id}}</td>
+                <td class="text-center">{{sku.sku}}</td>
+                <td class="text-center">{{sku.article}}</td>
+                <td class="text-center">{{sku.stl_marca}}</td>
+                <td class="text-center">{{sku.model}}</td>
+              <!--  <td class="text-center">{{sku.departamento_id}}</td>
+                <td class="text-center">{{sku.clase_id}}</td>
+                <td class="text-center">{{sku.familia_id}}</td>-->
+                <td class="text-center">{{sku.create_date}}</td>
+                <td class="text-center">{{sku.stock}}</td>
+                <td class="text-center">{{sku.amount}}</td>
+                <td class="text-center">{{sku.discontinued}}</td>
+                <td class="text-center">{{sku.finish_date}}</td>
+                <button class ="btn btn-danger" (click)="eliminar($event, sku.id)">BORRAR </button>
+                <button class ="btn btn-info" (click)="editar(sku.id)">EDITAR </button>
+            </tr>
+            
+    </table>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+.custab{
+    border: 3px solid #7c1010;
+    padding: 6px;
+    margin: 10% 0;
+    box-shadow: 5px 6px 4px #8f4e4e;
+    transition: 0.5s;
+    }
+.custab:hover{
+    box-shadow: 4px 4px 0px blue;
+    transition: 0.5s;
+    }
